@@ -1,1 +1,104 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>인사말 및 목회비전 | 킹스채플교회</title>
+  <link rel="stylesheet" href="css/common.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans KR", Arial, sans-serif;
+    }
+
+    header, nav {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      padding: 20px 40px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ===== 이미지 3개 가로 정렬 ===== */
+    .vision-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .vision-images img {
+      width: calc(33.333% - 10px); /* 3개 가로 */
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media screen and (max-width: 900px) {
+      .vision-images img {
+        width: calc(50% - 10px); /* 화면이 좁으면 2개씩 */
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .vision-images img {
+        width: 100%; /* 모바일에서는 1개씩 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ==================== -->
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="교회 로고"></a>
+      </div>
+      <div class="menu-area">
+        <div class="menu">
+          <a href="javascript:void(0)">교회소개</a>
+          <div class="submenu">
+            <a href="pastors.html">교역자 소개</a>
+            <a href="vision.html">인사말 및 목회비전</a>
+            <a href="#">교회이력</a>
+            <a href="#">예배안내</a>
+            <a href="#">오시는 길</a>
+          </div>
+        </div>
+        <div class="menu">
+          <a href="javascript:void(0)">주간소식</a>
+          <div class="submenu">
+            <a href="weekly.html">주보</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== CONTENT ==================== -->
+  <div class="content">
+    <h2>인사말 및 목회비전</h2>
+
+    <div class="vision-images">
+      <img src="images/vision1.jpg" alt="목회비전 이미지 1">
+      <img src="images/vision2.jpg" alt="목회비전 이미지 2">
+      <img src="images/vision3.jpg" alt="목회비전 이미지 3">
+    </div>
+  </div>
+
+  <footer>
+    E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
+    Call: <a href="tel:0262427017">02-6242-7017</a> |
+    Fax: 02-6242-7018
+  </footer>
+
+</body>
+</html>
