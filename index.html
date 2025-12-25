@@ -1,222 +1,170 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>킹스채플교회</title>
-<link rel="stylesheet" href="css/common.css">
+  <meta charset="UTF-8">
+  <title>킹스채플교회</title>
+  <!-- 공통 CSS -->
+  <link rel="stylesheet" href="css/common.css">
 
-<style>
-body {
-  margin: 0;
-  font-family: "Noto Sans KR", Arial, sans-serif;
-}
+  <!-- 페이지별 스타일 -->
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", Arial, sans-serif;
+    }
 
-/* =====================
-   HEADER
-===================== */
-header {
-  background-color: #2c3e50;
-}
+    /* ===================== MAIN IMAGE ==================== */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
 
-nav {
-  display: flex;
-  align-items: center;
-  height: 60px;
-  padding: 0 40px;
-}
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-/* 로고 */
-.logo img {
-  height: 40px;
-  margin-right: 40px;
-}
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      color: white;
+      border: none;
+      font-size: 28px;
+      padding: 10px 14px;
+      cursor: pointer;
+      z-index: 10;
+    }
 
-/* 메뉴 전체 */
-.menu-area {
-  display: flex;
-  align-items: stretch; /* ⭐ 중요 */
-}
+    .arrow.left { left: 20px; }
+    .arrow.right { right: 20px; }
 
-/* 상위 메뉴 공통 */
-.menu,
-.menu-single {
-  position: relative;
-}
+    /* ===================== FOOTER ==================== */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
 
-/* 상위 메뉴 버튼 */
-.menu > a,
-.menu-single {
-  display: flex;
-  align-items: center;
-  padding: 0 18px;
-  height: 60px;
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-}
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
 
-.menu > a:hover,
-.menu-single:hover {
-  color: #f1c40f;
-}
-
-/* =====================
-   SUB MENU (핵심)
-===================== */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 60px;          /* ⭐ nav 높이와 정확히 일치 */
-  left: 0;
-  min-width: 200px;
-  background: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  z-index: 9999;
-}
-
-/* 하위 메뉴 링크 */
-.submenu a {
-  display: block;
-  padding: 12px 16px;
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.submenu a:hover {
-  background: #f2f2f2;
-}
-
-/* ⭐⭐⭐ 핵심: menu 전체 영역 hover 유지 */
-.menu:hover .submenu {
-  display: block;
-}
-
-/* =====================
-   MAIN IMAGE
-===================== */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
-  color: white;
-  border: none;
-  font-size: 28px;
-  padding: 10px 14px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.arrow.left { left: 20px; }
-.arrow.right { right: 20px; }
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-footer a {
-  color: white;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-</style>
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <nav>
-
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png" alt="교회 로고">
-      </a>
-    </div>
-
-    <div class="menu-area">
-
-      <div class="menu">
-        <a href="javascript:void(0)">교회소개</a>
-        <div class="submenu">
-          <a href="pastors.html">교역자 소개</a>
-          <a href="#">인사말 및 목회비전</a>
-          <a href="#">교회이력</a>
-          <a href="#">예배안내</a>
-          <a href="#">오시는 길</a>
-        </div>
+  <!-- ===================== HEADER ==================== -->
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="교회 로고">
+        </a>
       </div>
 
-      <div class="menu">
-        <a href="javascript:void(0)">예배영상</a>
-        <div class="submenu">
-          <a href="#">주일예배</a>
-          <a href="#">수요찬양예배</a>
+      <div class="menu-area">
+        <!-- 교회소개 메뉴 -->
+        <div class="menu">
+          <a href="javascript:void(0)">교회소개</a>
+          <div class="submenu">
+            <a href="pastors.html">교역자 소개</a>
+            <a href="#">인사말 및 목회비전</a>
+            <a href="#">교회이력</a>
+            <a href="#">예배안내</a>
+            <a href="#">오시는 길</a>
+          </div>
         </div>
-      </div>
 
-      <div class="menu">
-        <a href="javascript:void(0)">갤러리</a>
-        <div class="submenu">
-          <a href="#">특별집회</a>
-          <a href="#">수요찬양예배</a>
-          <a href="#">찬양사역자 특순</a>
-          <a href="#">문화교실</a>
+        <!-- 예배영상 메뉴 -->
+        <div class="menu">
+          <a href="javascript:void(0)">예배영상</a>
+          <div class="submenu">
+            <a href="#">주일예배</a>
+            <a href="#">수요찬양예배</a>
+          </div>
         </div>
-      </div>
 
-      <div class="menu">
-        <a href="javascript:void(0)">주간소식</a>
-        <div class="submenu">
-          <a href="#">주보</a>
-          <a href="#">집회 및 이벤트 소식</a>
+        <!-- 갤러리 메뉴 -->
+        <div class="menu">
+          <a href="javascript:void(0)">갤러리</a>
+          <div class="submenu">
+            <a href="#">특별집회</a>
+            <a href="#">수요찬양예배</a>
+            <a href="#">찬양사역자 특순</a>
+            <a href="#">문화교실</a>
+          </div>
         </div>
+
+        <!-- 주간소식 메뉴 -->
+        <div class="menu">
+          <a href="javascript:void(0)">주간소식</a>
+          <div class="submenu">
+            <a href="#">주보</a>
+            <a href="#">집회 및 이벤트 소식</a>
+          </div>
+        </div>
+
+        <!-- 단일 메뉴 -->
+        <a href="mission.html" class="menu-single">선교지소식</a>
+        <a href="class.html" class="menu-single">문화교실 일정</a>
+        <a href="facility.html" class="menu-single">공간 및 시설</a>
       </div>
+    </nav>
+  </header>
 
-      <a href="#" class="menu-single">선교지소식</a>
-      <a href="#" class="menu-single">문화교실 일정</a>
-      <a href="#" class="menu-single">공간 및 시설</a>
+  <!-- ===================== MAIN SLIDER ==================== -->
+  <div class="slider">
+    <button class="arrow left" onclick="prevImage()">&#10094;</button>
+    <img id="sliderImage" src="images/image1.png" alt="메인 이미지">
+    <button class="arrow right" onclick="nextImage()">&#10095;</button>
+  </div>
 
-    </div>
-  </nav>
-</header>
+  <!-- ===================== FOOTER ==================== -->
+  <footer>
+    E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
+    Call: <a href="tel:0262427017">02-6242-7017</a> |
+    Fax: 02-6242-7018
+  </footer>
 
-<!-- 메인 슬라이드 -->
-<div class="slider">
-  <button class="arrow left" onclick="prevImage()">&#10094;</button>
-  <img id="sliderImage" src="images/image1.png">
-  <button class="arrow right" onclick="nextImage()">&#10095;</button>
-</div>
+  <!-- ===================== SLIDER SCRIPT ==================== -->
+  <script>
+    const images = [
+      "images/image1.png",
+      "images/image5.jpeg",
+      "images/image6.jpeg"
+    ];
 
-<footer>
-  E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
-  Call: <a href="tel:0262427017">02-6242-7017</a> |
-  Fax: 02-6242-7018
-</footer>
+    let currentIndex = 0;
+    const sliderImage = document.getElementById("sliderImage");
+
+    function showImage(i) {
+      sliderImage.src = images[i];
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+  </script>
+
+</body>
+</html>
 
 <script>
 const images = [
