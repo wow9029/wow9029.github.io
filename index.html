@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>킹스채플교회</title>
 <link rel="stylesheet" href="css/common.css">
-
 <style>
 body {
   margin: 0;
@@ -42,13 +41,85 @@ body {
 
 .arrow.left { left: 20px; }
 .arrow.right { right: 20px; }
+
+/* =====================
+   HEADER MENU
+===================== */
+header nav {
+  display: flex;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+.menu-area {
+  display: flex;
+  margin-left: 30px;
+  gap: 20px;
+}
+
+.menu, .menu-single {
+  position: relative;
+}
+
+.menu a, .menu-single {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #34495e;
+  min-width: 150px;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: white;
+}
+
+.submenu a:hover {
+  background-color: #1abc9c;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
 
-<!-- =====================
-   HEADER
-===================== -->
 <header>
   <nav>
     <div class="logo">
@@ -95,27 +166,19 @@ body {
   </nav>
 </header>
 
-<!-- =====================
-   MAIN SLIDER
-===================== -->
+<!-- MAIN SLIDER -->
 <div class="slider">
   <button class="arrow left" onclick="prevImage()">&#10094;</button>
   <img id="sliderImage" src="images/image1.png" alt="메인 이미지">
   <button class="arrow right" onclick="nextImage()">&#10095;</button>
 </div>
 
-<!-- =====================
-   FOOTER
-===================== -->
 <footer>
   E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
   Call: <a href="tel:0262427017">02-6242-7017</a> |
   Fax: 02-6242-7018
 </footer>
 
-<!-- =====================
-   SLIDER SCRIPT
-===================== -->
 <script>
 const images = ["images/image1.png","images/image5.jpeg","images/image6.jpeg"];
 let currentIndex = 0;
@@ -135,6 +198,5 @@ function prevImage() {
   showImage(currentIndex);
 }
 </script>
-
 </body>
 </html>
