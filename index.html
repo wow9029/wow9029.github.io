@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>킹스채플교회</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Noto Sans KR", Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<title>킹스채플교회</title>
 
-    /* 상단 메뉴바 */
+<style>
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", Arial, sans-serif;
+}
+
+/* =====================
+   HEADER
+===================== */
 header {
   background-color: #2c3e50;
-  padding: 0 40px;
 }
 
 nav {
   display: flex;
   align-items: center;
   height: 60px;
+  padding: 0 40px;
 }
 
 /* 로고 */
@@ -27,46 +30,48 @@ nav {
   margin-right: 40px;
 }
 
-/* 메뉴 전체를 가로로 */
+/* 메뉴 전체 */
 .menu-area {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* ⭐ 중요 */
 }
 
-/* 메뉴 공통 */
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: #f1c40f;
-}
-
-/* 드롭다운 */
-/* 드롭다운 */
-.menu {
+/* 상위 메뉴 공통 */
+.menu,
+.menu-single {
   position: relative;
 }
 
-/* 상위 메뉴 클릭 영역 확대 */
-.menu > a {
-  display: block;
-  padding: 20px 15px;
+/* 상위 메뉴 버튼 */
+.menu > a,
+.menu-single {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  height: 60px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-/* 하위 메뉴 */
+.menu > a:hover,
+.menu-single:hover {
+  color: #f1c40f;
+}
+
+/* =====================
+   SUB MENU (핵심)
+===================== */
 .submenu {
   display: none;
   position: absolute;
-  top: 100%;          /* ⭐ 40px → 100% */
+  top: 60px;          /* ⭐ nav 높이와 정확히 일치 */
   left: 0;
-  background: white;
   min-width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   z-index: 9999;
 }
 
@@ -77,58 +82,21 @@ nav a:hover {
   color: #333;
   font-size: 14px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .submenu a:hover {
   background: #f2f2f2;
 }
 
-/* ⭐ 핵심: menu 전체 hover 시 유지 */
+/* ⭐⭐⭐ 핵심: menu 전체 영역 hover 유지 */
 .menu:hover .submenu {
   display: block;
 }
 
-/* 단일 메뉴 */
-.single-menu {
-  margin: 0 15px;
-}
-
-footer {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 20px 10px;
-  font-size: 14px;
-  margin-top: 60px;
-}
-
-footer span {
-  margin: 0 10px;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-  /* 메인 이미지 크기 통일 */
-  .image-section {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-  }
-
-  .image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
+/* =====================
+   MAIN IMAGE
+===================== */
 .slider {
   position: relative;
   width: 100%;
@@ -140,42 +108,46 @@ footer a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* 화살표 버튼 */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0,0,0,0.4);
   color: white;
   border: none;
-  font-size: 30px;
-  padding: 10px 16px;
+  font-size: 28px;
+  padding: 10px 14px;
   cursor: pointer;
   z-index: 10;
 }
 
-.arrow.left {
-  left: 20px;
-}
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
 
-.arrow.right {
-  right: 20px;
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
 }
-
-.arrow:hover {
-  background: rgba(0, 0, 0, 0.6);
+footer a {
+  color: white;
+  text-decoration: none;
 }
-
-    
-    
-  </style>
+footer a:hover {
+  text-decoration: underline;
+}
+</style>
 </head>
+
 <body>
 
-<!-- 상단 메뉴 -->
 <header>
   <nav>
 
@@ -187,117 +159,92 @@ footer a:hover {
     </div>
 
     <!-- 메뉴 -->
-   <div class="menu-area">
+    <div class="menu-area">
 
-  <!-- 교회소개 -->
-  <div class="menu has-submenu">
-    <a href="#" class="menu-title">교회소개</a>
-    <div class="submenu">
-      <a href="pastors.html">교역자 소개</a>
-      <a href="#">인사말 및 목회비전</a>
-      <a href="#">교회이력</a>
-      <a href="#">예배안내</a>
-      <a href="#">오시는 길</a>
+      <div class="menu">
+        <a href="javascript:void(0)">교회소개</a>
+        <div class="submenu">
+          <a href="pastors.html">교역자 소개</a>
+          <a href="#">인사말 및 목회비전</a>
+          <a href="#">교회이력</a>
+          <a href="#">예배안내</a>
+          <a href="#">오시는 길</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="javascript:void(0)">예배영상</a>
+        <div class="submenu">
+          <a href="#">주일예배</a>
+          <a href="#">수요찬양예배</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="javascript:void(0)">갤러리</a>
+        <div class="submenu">
+          <a href="#">특별집회</a>
+          <a href="#">수요찬양예배</a>
+          <a href="#">찬양사역자 특순</a>
+          <a href="#">문화교실</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="javascript:void(0)">주간소식</a>
+        <div class="submenu">
+          <a href="#">주보</a>
+          <a href="#">집회 및 이벤트 소식</a>
+        </div>
+      </div>
+
+      <a href="#" class="menu-single">선교지소식</a>
+      <a href="#" class="menu-single">문화교실 일정</a>
+      <a href="#" class="menu-single">공간 및 시설</a>
+
     </div>
-  </div>
-
-  <!-- 예배영상 -->
-  <div class="menu has-submenu">
-    <a href="#" class="menu-title">예배영상</a>
-    <div class="submenu">
-      <a href="#">주일예배</a>
-      <a href="#">수요찬양예배</a>
-    </div>
-  </div>
-
-  <!-- 갤러리 -->
-  <div class="menu has-submenu">
-    <a href="#" class="menu-title">갤러리</a>
-    <div class="submenu">
-      <a href="#">특별집회</a>
-      <a href="#">수요찬양예배</a>
-      <a href="#">찬양사역자 특순</a>
-      <a href="#">문화교실</a>
-    </div>
-  </div>
-
-  <!-- 주간소식 -->
-  <div class="menu has-submenu">
-    <a href="#" class="menu-title">주간소식</a>
-    <div class="submenu">
-      <a href="#">주보</a>
-      <a href="#">집회 및 이벤트 소식</a>
-    </div>
-  </div>
-
-  <!-- 단일 메뉴 -->
-  <a href="#" class="menu-single">선교지소식</a>
-  <a href="#" class="menu-single">문화교실 일정</a>
-  <a href="#" class="menu-single">공간 및 시설</a>
-
-</div>
-
   </nav>
 </header>
 
-  <!-- 메인 콘텐츠 -->
-  <main class="main-images">
-
-  <!-- 슬라이더 영역 -->
-  <div class="slider">
+<!-- 메인 슬라이드 -->
+<div class="slider">
   <button class="arrow left" onclick="prevImage()">&#10094;</button>
-  <img id="sliderImage" src="images/image1.png" alt="슬라이드 이미지">
+  <img id="sliderImage" src="images/image1.png">
   <button class="arrow right" onclick="nextImage()">&#10095;</button>
-
 </div>
 
-  <div class="image-section">
-    <img src="images/image2.jpg" alt="메인 이미지 2">
-  </div>
-
-  <div class="image-section">
-    <img src="images/image3.png" alt="메인 이미지 3">
-  </div>
-
-  <div class="image-section">
-    <img src="images/image4.png" alt="메인 이미지 4">
-  </div>
-
-</main>
-
 <footer>
-  <span>E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a></span>
-  |
-  <span>Call: <a href="tel:0262427017">02-6242-7017</a></span>
-  |
-  <span>Fax: 02-6242-7018</span>
+  E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
+  Call: <a href="tel:0262427017">02-6242-7017</a> |
+  Fax: 02-6242-7018
 </footer>
 
- <script>
-      const images = [
-        "images/image5.jpeg",
-        "images/image6.jpeg",
-      ];
+<script>
+const images = [
+  "images/image1.png",
+  "images/image5.jpeg",
+  "images/image6.jpeg"
+];
 
-      let currentIndex = 0;
-      const sliderImage = document.getElementById("sliderImage");
+let currentIndex = 0;
+const sliderImage = document.getElementById("sliderImage");
 
-      function showImage(index) {
-        sliderImage.src = images[index];
-      }
+function showImage(i) {
+  sliderImage.src = images[i];
+}
 
-      function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage(currentIndex);
-      }
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
 
-      function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImage(currentIndex);
-      }
-
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
 </script>
-  
-  
+
+</body>
+</html>
 </body>
 </html>
