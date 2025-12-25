@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>○○교회</title>
+  <title>킹스채플교회</title>
   <style>
     body {
       margin: 0;
@@ -39,6 +39,50 @@
       padding: 60px;
       text-align: center;
     }
+
+/* 드롭다운 메뉴 */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: white;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.submenu a:hover {
+  background: #f2f2f2;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+
+
+
+
+    
   </style>
 </head>
 <body>
@@ -46,7 +90,23 @@
   <!-- 상단 메뉴 -->
   <header>
     <nav>
-      <a href="#about">교회소개</a>
+       
+
+      <div class="menu">
+      <a href="#">교회소개</a>
+    <div class="submenu">
+    <a href="#">교역자 소개</a>
+    <a href="#">인사말 및 목회비전</a>
+    <a href="#">교회이력</a>
+    <a href="#">예배안내</a>
+    <a href="#">오시는 길</a>
+  </div>
+</div>
+
+
+
+
+      
       <a href="#worship">예배영상</a>
       <a href="#gallery">갤러리</a>
       <a href="#weekly">주간소식</a>
