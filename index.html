@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>킹스채플교회</title>
+  <!-- 공통 CSS -->
   <link rel="stylesheet" href="css/common.css">
 
+  <!-- 페이지별 스타일 -->
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       font-family: "Noto Sans KR", Arial, sans-serif;
     }
 
-    /* ===================== MAIN SLIDER ==================== */
+    /* ===================== MAIN IMAGE ==================== */
     .slider {
       position: relative;
       width: 100%;
@@ -42,68 +43,6 @@
     .arrow.left { left: 20px; }
     .arrow.right { right: 20px; }
 
-    /* ===================== PASTOR SECTION ==================== */
-    .pastor-section img {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    /* ===================== WEEKLY POST ==================== */
-    .content {
-      padding: 20px 40px;
-    }
-
-    .post {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .post img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-    }
-
-    .post-info {
-      flex: 1;
-    }
-
-    .post-info h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .post-info p {
-      margin: 5px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .buttons button {
-      margin-right: 10px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    #writeForm {
-      display: none;
-      margin-bottom: 20px;
-    }
-
-    #writeForm input, #writeForm textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 5px;
-      font-size: 14px;
-    }
-
     /* ===================== FOOTER ==================== */
     footer {
       background-color: #2c3e50;
@@ -129,9 +68,13 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="교회 로고"></a>
+        <a href="index.html">
+          <img src="logo.png" alt="교회 로고">
+        </a>
       </div>
+
       <div class="menu-area">
+        <!-- 교회소개 메뉴 -->
         <div class="menu">
           <a href="javascript:void(0)">교회소개</a>
           <div class="submenu">
@@ -142,6 +85,8 @@
             <a href="#">오시는 길</a>
           </div>
         </div>
+
+        <!-- 예배영상 메뉴 -->
         <div class="menu">
           <a href="javascript:void(0)">예배영상</a>
           <div class="submenu">
@@ -149,6 +94,8 @@
             <a href="#">수요찬양예배</a>
           </div>
         </div>
+
+        <!-- 갤러리 메뉴 -->
         <div class="menu">
           <a href="javascript:void(0)">갤러리</a>
           <div class="submenu">
@@ -158,13 +105,17 @@
             <a href="#">문화교실</a>
           </div>
         </div>
+
+        <!-- 주간소식 메뉴 -->
         <div class="menu">
           <a href="javascript:void(0)">주간소식</a>
           <div class="submenu">
-            <a href="#weeklyPost">주보</a>
+            <a href="#">주보</a>
+            <a href="#">집회 및 이벤트 소식</a>
           </div>
         </div>
 
+        <!-- 단일 메뉴 -->
         <a href="mission.html" class="menu-single">선교지소식</a>
         <a href="class.html" class="menu-single">문화교실 일정</a>
         <a href="facility.html" class="menu-single">공간 및 시설</a>
@@ -175,31 +126,8 @@
   <!-- ===================== MAIN SLIDER ==================== -->
   <div class="slider">
     <button class="arrow left" onclick="prevImage()">&#10094;</button>
-    <img id="sliderImage" src="images/image1.png">
+    <img id="sliderImage" src="images/image1.png" alt="메인 이미지">
     <button class="arrow right" onclick="nextImage()">&#10095;</button>
-  </div>
-
-  <!-- ===================== PASTOR SECTION ==================== -->
-  <div class="pastor-section">
-    <img src="images/pastor/pastor1.jpg" alt="교역자 이미지 1">
-    <img src="images/pastor/pastor2.jpg" alt="교역자 이미지 2">
-  </div>
-
-  <!-- ===================== WEEKLY POST ==================== -->
-  <div class="content" id="weeklyPost">
-    <h2>주간소식 - 주보</h2>
-
-    <button onclick="toggleForm()">글쓰기</button>
-    <div id="writeForm">
-      <input type="text" id="title" placeholder="제목 입력">
-      <input type="date" id="date">
-      <input type="text" id="imageURL" placeholder="이미지 URL">
-      <textarea id="contentInput" rows="4" placeholder="내용 입력"></textarea>
-      <button onclick="addPost()">등록</button>
-      <button onclick="toggleForm()">취소</button>
-    </div>
-
-    <div id="postList"></div>
   </div>
 
   <!-- ===================== FOOTER ==================== -->
@@ -209,9 +137,14 @@
     Fax: 02-6242-7018
   </footer>
 
+  <!-- ===================== SLIDER SCRIPT ==================== -->
   <script>
-    // ===== MAIN SLIDER =====
-    const images = ["images/image1.png", "images/image5.jpeg", "images/image6.jpeg"];
+    const images = [
+      "images/image1.png",
+      "images/image5.jpeg",
+      "images/image6.jpeg"
+    ];
+
     let currentIndex = 0;
     const sliderImage = document.getElementById("sliderImage");
 
@@ -228,84 +161,7 @@
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       showImage(currentIndex);
     }
-
-    // ===== WEEKLY POST =====
-    const postList = document.getElementById('postList');
-    const writeForm = document.getElementById('writeForm');
-    let posts = [];
-
-    function toggleForm() {
-      writeForm.style.display = writeForm.style.display === 'none' ? 'block' : 'none';
-    }
-
-    function addPost() {
-      const title = document.getElementById('title').value;
-      const date = document.getElementById('date').value;
-      const imageURL = document.getElementById('imageURL').value;
-      const content = document.getElementById('contentInput').value;
-
-      if (!title || !date || !imageURL || !content) {
-        alert('모든 항목을 입력해주세요.');
-        return;
-      }
-
-      posts.push({ title, date, imageURL, content });
-      renderPosts();
-      clearForm();
-      toggleForm();
-    }
-
-    function clearForm() {
-      document.getElementById('title').value = '';
-      document.getElementById('date').value = '';
-      document.getElementById('imageURL').value = '';
-      document.getElementById('contentInput').value = '';
-    }
-
-    function renderPosts() {
-      postList.innerHTML = '';
-      posts.forEach((post, index) => {
-        const postDiv = document.createElement('div');
-        postDiv.className = 'post';
-        postDiv.innerHTML = `
-          <img src="${post.imageURL}" alt="주보 이미지">
-          <div class="post-info">
-            <h3>${post.title}</h3>
-            <p>${post.date}</p>
-            <p>${post.content}</p>
-          </div>
-          <div class="buttons">
-            <button onclick="editPost(${index})">수정</button>
-            <button onclick="deletePost(${index})">삭제</button>
-          </div>
-        `;
-        postList.appendChild(postDiv);
-      });
-    }
-
-    function editPost(index) {
-      const post = posts[index];
-      document.getElementById('title').value = post.title;
-      document.getElementById('date').value = post.date;
-      document.getElementById('imageURL').value = post.imageURL;
-      document.getElementById('contentInput').value = post.content;
-      toggleForm();
-      deletePost(index);
-    }
-
-    function deletePost(index) {
-      posts.splice(index, 1);
-      renderPosts();
-    }
-
-    // ===== 초기 더미 데이터 =====
-    posts.push({
-      title: '2025년 12월 1주차 주보',
-      date: '2025-12-01',
-      imageURL: 'images/weekly1.jpg',
-      content: '이번 주 예배 안내 및 교회 소식입니다.'
-    });
-    renderPosts();
   </script>
+
 </body>
 </html>
