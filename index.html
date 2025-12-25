@@ -118,6 +118,47 @@ footer a:hover {
     display: block;
   }
 
+.slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 화살표 버튼 */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 32px;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+    
     
   </style>
 </head>
@@ -191,9 +232,16 @@ footer a:hover {
   <!-- 메인 콘텐츠 -->
   <main class="main-images">
 
-  <div class="image-section">
-    <img src="images/image1.png" alt="메인 이미지 1">
-  </div>
+  <!-- 슬라이더 영역 -->
+  <div class="slider">
+
+  <button class="arrow left" onclick="prevImage()">&#10094;</button>
+
+  <img id="sliderImage" src="images/image1.png" alt="슬라이드 이미지">
+
+  <button class="arrow right" onclick="nextImage()">&#10095;</button>
+
+</div>
 
   <div class="image-section">
     <img src="images/image2.jpg" alt="메인 이미지 2">
@@ -217,6 +265,33 @@ footer a:hover {
   <span>Fax: 02-6242-7018</span>
 </footer>
 
+ <script>
+      const images = [
+        "images/image1.png",
+        "images/image2.jpg",
+        "images/image3.png",
+        "images/image4.png"
+      ];
+
+      let currentIndex = 0;
+      const sliderImage = document.getElementById("sliderImage");
+
+      function showImage(index) {
+        sliderImage.src = images[index];
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      }
+
+
+  
   
 </body>
 </html>
