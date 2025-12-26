@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>교역자 소개</title>
-  <link rel="stylesheet" href="css/common.css">
+<meta charset="UTF-8">
+<title>교회 소개 | 킹스채플교회</title>
+<link rel="stylesheet" href="css/common.css">
+<style>
+body { margin:0; font-family:"Noto Sans KR", Arial, sans-serif; }
+header nav { display:flex; align-items:center; background-color:#2c3e50; color:white; padding:10px 20px; }
+header .logo img { height:50px; }
+.menu-area { display:flex; margin-left:30px; gap:20px; }
+.menu, .menu-single { position:relative; }
+.menu a, .menu-single { color:white; text-decoration:none; padding:10px 15px; display:inline-block; }
+.menu:hover .submenu { display:block; }
+.submenu { display:none; position:absolute; top:100%; left:0; background-color:#34495e; min-width:150px; }
+.submenu a { display:block; padding:10px; color:white; }
+.submenu a:hover { background-color:#1abc9c; }
+.content { padding:20px 40px; }
+h2 { text-align:center; margin-bottom:30px; }
+.vision-images { display:flex; flex-wrap:wrap; gap:10px; }
+.vision-images img { width:calc(33.333% - 10px); height:300px; object-fit:cover; display:block; }
+@media screen and (max-width:900px) { .vision-images img { width:calc(50% - 10px); } }
+@media screen and (max-width:600px) { .vision-images img { width:100%; } }
+footer { background-color:#2c3e50; color:white; text-align:center; padding:20px; font-size:14px; }
+footer a { color:white; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+</style>
 </head>
 <body>
 
-  <!-- 공통 헤더 불러오기 -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-
-        // 햄버거 메뉴 토글
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-        if (toggle && menu) {
-          toggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-          });
-        }
-      });
-  </script>
-
-  <!-- 페이지 본문 -->
-  <main>
-    <section class="pastor-section">
-      <h1>교역자 소개</h1>
-      <div class="pastor-cards">
-        <div class="pastor-card">
-          <img src="images/pastor/pastor1.jpg" alt="교역자 이미지 1" class="responsive-img">
-          <h2>홍길동 목사</h2>
-          <p>담임목사</p>
-        </div>
-        <div class="pastor-card">
-          <img src="images/pastor/pastor2.jpg" alt="교역자 이미지 2" class="responsive-img">
-          <h2>김영희 목사</h2>
-          <p>교육목사</p>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><img src="logo.png" alt="교회 로고"></a>
+    </div>
+    <div class="menu-area">
+      <div class="menu">
+        <a href="javascript:void(0)">교회소개</a>
+        <div class="submenu">
+          <a href="pastors.html">교역자 소개</a>
+          <a href="vision.html">인사말 및 목회비전</a>
+          <a href="#">교회이력</a>
+          <a href="#">예배안내</a>
+          <a href="#">오시는 길</a>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="menu">
+        <a href="javascript:void(0)">예배영상</a>
+        <div class="submenu">
+          <a href="#">주일예배</a>
+          <a href="#">수요찬양예배</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="javascript:void(0)">갤러리</a>
+        <div class="submenu">
+          <a href="#">특별집회</a>
+          <a href="#">수요찬양예배</a>
+          <a href="#">찬양사역자 특순</a>
+          <a href="#">문화교실</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="javascript:void(0)">주간소식</a>
+        <div class="submenu">
+          <a href="weekly.html">주보</a>
+        </div>
+      </div>
+      <a href="mission.html" class="menu-single">선교지소식</a>
+      <a href="class.html" class="menu-single">문화교실 일정</a>
+      <a href="facility.html" class="menu-single">공간 및 시설</a>
+    </div>
+  </nav>
+</header>
 
-  <!-- 푸터 -->
-  <footer>
-    E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
-    Call: <a href="tel:0262427017">02-6242-7017</a> |
-    Fax: 02-6242-7018
-  </footer>
+<div class="content">
+  <h2>인사말 및 목회비전</h2>
+  <div class="vision-images">
+    <img src="images/pastor/pastor1.jpg" alt="안사말 1">
+    <img src="images/pastor/pastor2.png" alt="인사말 2">
+  </div>
+</div>
+
+<footer>
+  E-mail: <a href="mailto:kh9191@hanmail.net">kh9191@hanmail.net</a> |
+  Call: <a href="tel:0262427017">02-6242-7017</a> |
+  Fax: 02-6242-7018
+</footer>
 
 </body>
 </html>
