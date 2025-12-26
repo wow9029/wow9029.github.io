@@ -34,10 +34,11 @@ nav {
 
 .menu > a,
 .menu-single {
-  display: flex;
-  align-items: center; /* 메뉴 텍스트 세로 중앙 정렬 */
-  padding: 0 18px;
-  height: 60px;
+  display: flex;          /* flex로 텍스트 중앙 정렬 */
+  align-items: center;    /* 세로 중앙 정렬 */
+  justify-content: center;/* 필요 시 가로 중앙 정렬 */
+  padding: 0 18px;        /* 좌우 간격만 유지 */
+  height: 60px;           /* 상단바 높이와 동일 */
   color: white;
   text-decoration: none;
   font-size: 15px;
