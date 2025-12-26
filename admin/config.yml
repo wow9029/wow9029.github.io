@@ -1,1 +1,17 @@
+backend:
+  name: github
+  repo: wow9029/wow9029.github.io  # 레포 이름 확인
+  branch: main                      # 기본 브랜치
 
+media_folder: "images/uploads"       # 이미지 업로드 폴더
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "게시물"
+    folder: "_posts"                 # 게시물이 저장될 폴더
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "내용", name: "body", widget: "markdown" }
