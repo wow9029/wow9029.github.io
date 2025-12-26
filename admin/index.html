@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>CMS Admin</title>
+    <!-- Netlify CMS 불러오기 -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </head>
   <body>
+    <h1>CMS 관리자 페이지</h1>
+    <p>로그인 후 게시물을 관리할 수 있습니다.</p>
+    
+    <!-- CMS 설정 파일 경로 지정 -->
+    <script>
+      CMS.init({ config: '/admin/config.yml' });
+    </script>
   </body>
 </html>
