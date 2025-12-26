@@ -145,3 +145,18 @@ footer a:hover {
   height: auto;
   display: block;
 }
+
+
+/* =====================
+   인사말 및 목회비전 이미지
+===================== */
+.vision-images {
+  display: block;       /* flex 제거, 블록으로 세로 배치 */
+}
+
+.vision-images img {
+  width: 100%;          /* 가로 전체 차지 */
+  height: auto;         /* 세로 비율 유지 */
+  display: block;
+  margin-bottom: 20px;  /* 이미지 간 간격 */
+}
