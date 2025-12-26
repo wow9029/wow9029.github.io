@@ -1,5 +1,6 @@
 backend:
   name: git-gateway   # Netlify Identity + Git Gateway 사용
+    repo: wow9029/wow9029.github.io
   branch: main
 
 media_folder: "images/uploads"   # 실제 GitHub 레포 경로
