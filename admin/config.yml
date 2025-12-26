@@ -1,9 +1,9 @@
 backend:
-  name: git-gateway
+  name: git-gateway   # Netlify Identity + Git Gateway 사용
   branch: main
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"   # 실제 GitHub 레포 경로
+public_folder: "/images/uploads" # 브라우저에서 접근 가능한 경로
 
 collections:
   - name: "posts"
