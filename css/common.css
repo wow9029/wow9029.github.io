@@ -29,9 +29,12 @@ nav {
 .menu,
 .menu-single {
   position: relative;
-  margin: 0;       
-  padding: 0;      
+  margin: 0;
+  padding: 0;
   line-height: 1;
+  height: 100%;        /* 메뉴 항목 높이를 nav 전체 높이에 맞춤 */
+  display: flex;
+  align-items: center; /* 텍스트 세로 중앙 */
 }
 
 .menu > a,
