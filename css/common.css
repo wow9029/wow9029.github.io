@@ -22,6 +22,8 @@ nav {
   display: flex;
   align-items: center; /* 메뉴 영역 세로 중앙 정렬 */
   margin-left: 40px;   /* 로고와 메뉴 사이 간격 */
+  height: 100%;        /* 메뉴 영역 높이를 nav 전체 높이와 맞춤 */
+
 }
 
 .menu,
@@ -38,7 +40,7 @@ nav {
   align-items: center;    /* 세로 중앙 정렬 */
   justify-content: center;/* 필요 시 가로 중앙 정렬 */
   padding: 0 18px;        /* 좌우 간격만 유지 */
-  height: 60px;           /* 상단바 높이와 동일 */
+  height: 100%;        /* nav 전체 높이 기준으로 메뉴 항목 높이 맞춤 */
   color: white;
   text-decoration: none;
   font-size: 15px;
