@@ -8,6 +8,7 @@ header {
 nav {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* 로고와 메뉴 간 간격 */
   height: 60px;
   padding: 0 40px;
 }
